@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Template 1 light</title>
+    <link
+      rel="shortcut icon"
+      href="/assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <style>
+    #portfolio-output .card {
+      background-color: #ffffff;
+      color: #333;
+      font-family: "Segoe UI", sans-serif;
+    }
+    #portfolio-output h4,
+    h5,
+    h6 {
+      color: #2c3e50;
+    }
+  </style>
+
+  <body>
+    <!-- This layout will be generated dynamically inside portfolio-output -->
+
+    <div class="card shadow p-4">
+      <div class="row">
+        <!-- Left: Profile Info -->
+        <div class="col-md-4 text-center border-end">
+          <img
+            id="preview-img"
+            src="https://placehold.co/120x120"
+            class="img-fluid rounded-circle mb-3 photo mb-3 mx-auto d-block"
+            width="120"
+            height="120"
+            style="display: none"
+            alt="Profile"
+          />
+          <!-- <img src="https://via.placeholder.com/120" id="preview-img" alt="Profile" class="img-fluid rounded-circle mb-3" width="120"> -->
+          <div class="w-100 text-center mb-3">
+            <!-- img will be inserted here by JS if uploaded -->
+            <h3 id="preview-name" class="mt-2 mb-0"></h3>
+            <div
+              class="highlight"
+              id="preview-role"
+              style="color: #ffc107; font-weight: bold"
+            ></div>
+          </div>
+          <p id="preview-email" class="mb-1">johndoe@gmail.com</p>
+          <p id="preview-phone">+91-9876543210</p>
+          <a href="http://" target="_blank" rel="noopener noreferrer"
+            >LinkedIn</a
+          >
+          <a href="http://" target="_blank" rel="noopener noreferrer">GitHub</a>
+          <hr />
+          <h6>Skills</h6>
+          <ul
+            id="preview-skills"
+            class="list-unstyled d-flex flex-wrap gap-2 justify-content-center"
+          >
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+
+        <!-- Right: About, Education, Projects, Experience -->
+        <div class="col-md-8">
+          <section class="mb-4">
+            <h5>About Me</h5>
+            <p id="preview-about">
+              Creative frontend developer with a passion for responsive UI.
+            </p>
+          </section>
+
+          <section class="mb-4">
+            <h5>Education</h5>
+            <ul id="preview-education">
+              <li><strong>BCA</strong> – XYZ University (2020–2023)</li>
+            </ul>
+          </section>
+
+          <section class="mb-4">
+            <h5>Experience</h5>
+            <ul id="preview-experience">
+              <li>
+                <strong>Intern - Web Developer</strong> at ABC Corp (Jan 2023 –
+                May 2023)
+              </li>
+            </ul>
+          </section>
+
+          <section class="mb-4">
+            <h5>Projects</h5>
+            <ul id="preview-projects">
+              <li>
+                <strong>Portfolio Maker</strong> – A responsive portfolio
+                generator using HTML, CSS, JS
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h5>Certifications</h5>
+            <ul id="preview-certifications">
+              <li>HTML5 Certification – Coursera (2022)</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

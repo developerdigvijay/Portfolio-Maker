@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register - Portfolio Maker</title>
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <style>
+      body {
+        background-color: #111;
+        color: #fff;
+        min-height: 90vh;
+        margin: 0;
+      }
+
+      .register-outer {
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .register-container {
+        max-width: 450px;
+        width: 100%;
+        padding: 2rem;
+        background-color: #181a1b;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.7);
+      }
+
+      .form-control,
+      .form-check-input {
+        background-color: #181a1b;
+        border: 1px solid #444;
+        color: #fff;
+      }
+
+      .form-control:focus {
+        /* box-shadow: 0 0 0 2px #ffc107; */
+        /* border-color: #ffc107; */
+        background-color: #222;
+        color: #fff;
+      }
+
+      .form-label {
+        /* color: #ffc107; */
+        font-weight: 500;
+      }
+
+      .btn-dark {
+        background-color: #444;
+        color: #181a1b;
+        border: none;
+        width: 100%;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: background 0.2s;
+      }
+      .btn-dark:hover,
+      .btn-dark:focus {
+        background-color: #fff;
+        color: #181a1b;
+      }
+
+      .text-muted,
+      .text-muted a {
+        color: #bdbdbd !important;
+        text-decoration: none;
+      }
+
+      .text-muted a:hover {
+        /* color: #ffc107 !important; */
+        text-decoration: underline;
+      }
+
+      .invalid-feedback {
+        color: red;
+      }
+      input::placeholder {
+        color: gray !important;
+        opacity: 0.6 !important;
+      }
+
+      .h-100 {
+        height: 145% !important;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="assets/images/logo.png"
+            alt=""
+            srcset=""
+            class="logo"
+            style="height: 50px; width: auto"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <!-- <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li> -->
+            <li class="nav-item me-2" id="signupNav">
+              <a class="btn btn-light" href="register.html">Sign up</a>
+            </li>
+            <li class="nav-item" id="loginNav">
+              <a class="btn btn-outline-light" href="login.html">Log in</a>
+            </li>
+            <!-- User Profile Dropdown -->
+            <li
+              class="nav-item dropdown ms-3"
+              id="userDropdown"
+              style="display: none"
+            >
+              <a
+                class="nav-link dropdown-toggle d-flex align-items-center"
+                href="#"
+                id="navbarUserDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-circle-user fa-2x"></i>
+                <span class="ms-2" id="navbarUserName"></span>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="navbarUserDropdown"
+              >
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#" id="logoutBtn">Logout</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar End -->
+
+    <div class="register-outer">
+      <div class="register-container">
+        <h3 class="text-center mb-4">Create your account</h3>
+        <form id="registerForm" novalidate>
+          <div class="mb-3">
+            <label for="name" class="form-label">Full Name</label>
+            <input
+              type="text"
+              class="form-control"
+              id="name"
+              placeholder="Enter your full name"
+              required
+            />
+            <div class="invalid-feedback">Full name is required.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              placeholder="Enter your email"
+              required
+            />
+            <div class="invalid-feedback">Please enter a valid email.</div>
+          </div>
+
+          <div class="mb-3 position-relative">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              placeholder="Enter your password"
+              required
+              minlength="6"
+              style="padding-right: 2.5rem"
+            />
+            <button
+              type="button"
+              class="btn btn-sm btn-link position-absolute end-0 top-0 h-100 d-flex align-items-center me-2 p-0"
+              tabindex="-1"
+              style="color: #888"
+              onclick="togglePassword('password', this)"
+              aria-label="Toggle password visibility"
+            >
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            </button>
+            <div class="invalid-feedback">
+              Password must be at least 6 characters.
+            </div>
+          </div>
+
+          <div class="mb-3 position-relative">
+            <label for="confirmPassword" class="form-label"
+              >Confirm Password</label
+            >
+            <input
+              type="password"
+              class="form-control"
+              id="confirmPassword"
+              placeholder="Confirm your password"
+              required
+              style="padding-right: 2.5rem"
+            />
+            <button
+              type="button"
+              class="btn btn-sm btn-link position-absolute end-0 top-0 h-100 d-flex align-items-center me-2 p-0"
+              tabindex="-1"
+              style="color: #888"
+              onclick="togglePassword('confirmPassword', this)"
+              aria-label="Toggle password visibility"
+            >
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            </button>
+            <div class="invalid-feedback">Passwords do not match.</div>
+          </div>
+
+          <div class="mb-3 form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="terms"
+              required
+            />
+            <label class="form-check-label" for="terms"
+              >I agree to the Terms and Conditions</label
+            >
+            <div class="invalid-feedback">
+              You must agree before submitting.
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-dark">Register</button>
+
+          <div class="text-center mt-3">
+            <small class="text-muted"
+              >Already have an account? <a href="login.html">Login</a></small
+            >
+          </div>
+        </form>
+        <div id="registerError" class="text-danger mt-2"></div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script>
+      function togglePassword(inputId, btn) {
+        const input = document.getElementById(inputId);
+        const icon = btn.querySelector("i");
+        if (input.type === "password") {
+          input.type = "text";
+          icon.classList.remove("fa-eye");
+          icon.classList.add("fa-eye-slash");
+        } else {
+          input.type = "password";
+          icon.classList.remove("fa-eye-slash");
+          icon.classList.add("fa-eye");
+        }
+      }
+
+      document
+        .getElementById("registerForm")
+        .addEventListener("submit", function (e) {
+          e.preventDefault();
+          const form = this;
+          const name = document.getElementById("name").value.trim();
+          const email = document.getElementById("email").value.trim();
+          const password = document.getElementById("password").value;
+          const confirmPassword =
+            document.getElementById("confirmPassword").value;
+          const terms = document.getElementById("terms");
+          const registerError = document.getElementById("registerError");
+
+          // Reset error message and validation
+          registerError.textContent = "";
+          terms.classList.remove("is-invalid");
+          document
+            .getElementById("confirmPassword")
+            .classList.remove("is-invalid");
+
+          // Validate terms checkbox
+          if (!terms.checked) {
+            registerError.textContent =
+              "You must agree to the Terms and Conditions.";
+            terms.classList.add("is-invalid");
+            return;
+          }
+
+          // Validate password match
+          if (password !== confirmPassword) {
+            registerError.textContent = "Passwords do not match.";
+            document
+              .getElementById("confirmPassword")
+              .classList.add("is-invalid");
+            return;
+          }
+
+          // Proceed with registration if all validations pass
+          fetch("/api/register", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ name, email, password }),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.success) {
+                window.location.href = "form.html";
+              } else {
+                registerError.textContent =
+                  data.error || "Registration failed.";
+              }
+            });
+        });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Maker</title>
+    <link
+      rel="shortcut icon"
+      href="assets/images/favicon.ico"
+      type="image/x-icon"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background-color: #111;
+        color: white;
+      }
+      .hero {
+        /* background: linear-gradient(to right, #1a1a1a, #2c2c2c); */
+        background-image: url("assets/images/hero-bg.svg");
+        background-size: cover;
+        background-position: center;
+        min-height: 90vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 4rem 1rem;
+      }
+      .hero h1 {
+        font-size: 2.5rem;
+        font-weight: 700;
+      }
+      .card {
+        background-image: url("assets/images/wave-card-bg.svg");
+        background-position: center;
+        background-size: cover;
+        background-color: #1e1e1e;
+        border: none;
+        color: white;
+      }
+      .card-title {
+        font-weight: bold;
+      }
+      .btn-custom {
+        background-color: white;
+        color: black;
+        font-weight: 600;
+      }
+      .template-img {
+        border-radius: 10px;
+        max-width: 100%;
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        cursor: pointer;
+      }
+      .template-img:hover {
+        transform: scale(1.08);
+        box-shadow: 0 8px 32px rgba(53, 188, 251, 0.18),
+          0 2px 8px rgba(0, 0, 0, 0.25);
+        z-index: 2;
+      }
+      footer a {
+        color: #aaa;
+        text-decoration: none;
+        margin: 0 10px;
+      }
+      footer a:hover {
+        color: white;
+      }
+
+      /* button */
+      /* From Uiverse.io by SalladShooter */
+      .button {
+        cursor: pointer;
+        padding: 1em;
+        font-size: 1em;
+        width: auto;
+        aspect-ratio: 1/0.25;
+        color: white;
+        background: #212121;
+        background-size: cover;
+        background-blend-mode: overlay;
+        border-radius: 0.5em;
+        outline: 0.1em solid #353535;
+        border: 0;
+        box-shadow: 0 0 1em 1em rgba(0, 0, 0, 0.1);
+        transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+          box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+          background 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+          outline 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+      }
+
+      .button:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 1em 0.45em rgba(0, 0, 0, 0.1);
+        background: radial-gradient(
+          circle at bottom,
+          rgba(50, 100, 180, 0.5) 10%,
+          #212121 70%
+        );
+        outline: 0;
+      }
+
+      .icon {
+        fill: white;
+        width: 1em;
+        aspect-ratio: 1;
+        top: 0;
+        left: 0;
+        margin: auto;
+        transform: translate(-35%, 10%);
+      }
+      .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1050;
+        background-color: #000 !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      }
+      #contact {
+        background-image: url("assets/images/hero-bg.svg");
+        /* background-image: url("assets/images/hero-bg.svg"); */
+        background-size: cover;
+        background-position: center;
+        /* min-height: 500px; */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-black">
+      <div class="container">
+        <a class="navbar-brand" href="index.html">
+          <img
+            src="assets/images/logo.png"
+            alt=""
+            srcset=""
+            class="logo"
+            style="height: 50px; width: auto"
+          />
+        </a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbarNav"
+        >
+          <ul class="navbar-nav align-items-center">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item me-2" id="signupNav">
+              <a class="btn btn-light" href="register.html">Sign up</a>
+            </li>
+            <li class="nav-item" id="loginNav">
+              <a class="btn btn-outline-light" href="login.html">Log in</a>
+            </li>
+            <!-- User Profile Dropdown -->
+            <li
+              class="nav-item dropdown ms-3"
+              id="userDropdown"
+              style="display: none"
+            >
+              <a
+                class="nav-link dropdown-toggle d-flex align-items-center"
+                href="#"
+                id="navbarUserDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fa-solid fa-circle-user fa-2x"></i>
+                <span class="ms-2" id="navbarUserName"></span>
+              </a>
+              <ul
+                class="dropdown-menu dropdown-menu-end"
+                aria-labelledby="navbarUserDropdown"
+                style="min-width: 180px"
+              >
+                <li>
+                  <a class="dropdown-item" href="profile.html">
+                    <i class="fa-solid fa-user me-2"></i>Profile
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#" id="logoutBtn">Logout</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="bg-img">
+        <div class="container">
+          <h1>
+            Create a professional
+            <span class="font-monospace text-bg-light"> portfolio</span> in
+            minutes
+          </h1>
+          <p class="lead mt-3">
+            Showcase your skills and experience with a stunning online
+            portfolio. Choose from a variety of templates and customize it to
+            reflect your unique brand.
+          </p>
+          <div id="portfolio-alert"></div>
+          <button class="button" type="button" id="createPortfolioBtn">
+            Create my portfolio
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-5">
+      <div class="container text-center">
+        <h2 class="fw-bold mb-4">Build your portfolio with ease</h2>
+        <p class="mb-5">
+          Our intuitive platform makes it simple to create a portfolio that
+          stands out.
+        </p>
+        <div class="row">
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 p-4">
+              <h5 class="card-title">Choose a template</h5>
+              <p class="card-text">
+                Select from a range of professionally designed templates to
+                match your style and industry.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 p-4">
+              <h5 class="card-title">Customize your content</h5>
+              <p class="card-text">
+                Easily add your projects, skills, and experience with our
+                user-friendly editor.
+              </p>
+            </div>
+          </div>
+          <div class="col-md-4 mb-4">
+            <div class="card h-100 p-4">
+              <h5 class="card-title">Share your work</h5>
+              <p class="card-text">
+                Share your portfolio with a unique link, download it as a PDF,
+                or print it directly from your browser.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Templates Section -->
+    <section class="py-5">
+      <div class="container">
+        <h2 class="fw-bold mb-3">Stunning templates to showcase your work</h2>
+        <p class="mb-4">
+          Choose from a variety of modern and professional templates, designed
+          to highlight your best work.
+        </p>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <img
+              width="350"
+              src="assets/images/t-img-1.jpg"
+              class="template-img mb-2"
+              alt="Clean and modern"
+            />
+            <h6 class="fw-bold">Clean and modern</h6>
+            <p class="text-white-50">
+              A classic design that puts your content front and center.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <img
+              width="350"
+              src="assets/images/t-img-2.jpg"
+              class="template-img mb-2"
+              alt="Creative and bold"
+            />
+            <h6 class="fw-bold">Creative and bold</h6>
+            <p class="text-white-50">
+              Make a statement with a vibrant and eye-catching layout.
+            </p>
+          </div>
+          <div class="col-md-4">
+            <img
+              src="assets/images/t-img-3.png"
+              class="template-img mb-2"
+              alt="Minimalist and elegant"
+            />
+            <h6 class="fw-bold">Minimalist and elegant</h6>
+            <p class="text-white-50">
+              A sleek and sophisticated design for a refined presentation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section class="py-5 text-white" id="about">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 class="fw-bold mb-3">About Me</h2>
+            <p class="lead">
+              I'm a software developer with a passion for building efficient,
+              user-focused web applications. With a background in computer
+              science and experience across front-end and back-end technologies,
+              I enjoy turning complex problems into simple, elegant solutions.
+              My core skills include <strong>JavaScript</strong>,
+              <strong>React</strong>, <strong>Node.js</strong>, and
+              <strong>RESTful APIs</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Me Section -->
+    <section class="py-5 text-white" id="contact">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8 text-center">
+            <h2 class="fw-bold mb-3">Contact Me</h2>
+            <p class="lead mb-4">
+              Feel free to reach out for collaboration or project inquiries:
+            </p>
+            <ul class="list-unstyled fs-5 mb-0">
+              <li class="mb-2">
+                <i class="fa-solid fa-envelope me-2 text-warning"></i>
+                <a
+                  href="mailto:digvijaybamaniya@gmail.com"
+                  class="text-white text-decoration-underline"
+                  >digvijaybamaniya@gmail.com</a
+                >
+              </li>
+              <li class="mb-2">
+                <i class="fa-brands fa-linkedin me-2 text-primary"></i>
+                <a
+                  href="https://www.linkedin.com/in/digvijay-bamaniya-778287282/"
+                  target="_blank"
+                  class="text-white text-decoration-underline"
+                  >digvijay-bamaniya</a
+                >
+              </li>
+              <li>
+                <i class="fa-brands fa-github me-2" style="color: #fff"></i>
+                <a
+                  href="https://github.com/developerdigvijay"
+                  target="_blank"
+                  class="text-white text-decoration-underline"
+                  >developerdigvijay</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- footer -->
+    <footer class="py-3 my-4">
+      <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+        <li class="nav-item">
+          <a href="#" class="nav-link px-2 text-light">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="#about" class="nav-link px-2 text-light">About</a>
+        </li>
+        <li class="nav-item">
+          <a href="#contact" class="nav-link px-2 text-light">Contact</a>
+        </li>
+      </ul>
+      <p class="text-center text-light">© 2025 devfolio</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/navbar.js"></script>
+    <script>
+      // Enhance profile dropdown with user info and change password
+      function updateProfileMenu() {
+        fetch("/api/user")
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.authenticated) {
+              document.getElementById("profileMenuUserName").textContent =
+                data.name || "";
+              document.getElementById("profileMenuUserEmail").textContent =
+                data.email || "";
+            }
+          });
+      }
+      document.addEventListener("DOMContentLoaded", function () {
+        // Fill profile menu when dropdown is shown
+        const dropdown = document.getElementById("navbarUserDropdown");
+        if (dropdown) {
+          dropdown.addEventListener("click", updateProfileMenu);
+        }
+        // Change Password link
+        const changePwd = document.getElementById("changePasswordLink");
+        if (changePwd) {
+          changePwd.addEventListener("click", function (e) {
+            e.preventDefault();
+            window.location.href = "reset.html";
+          });
+        }
+      });
+      document
+        .getElementById("createPortfolioBtn")
+        .addEventListener("click", function () {
+          fetch("/api/user")
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.authenticated) {
+                window.location.href = "form.html";
+              } else {
+                window.location.href = "login.html"; // Or 'register.html' if you prefer
+              }
+            });
+        });
+    </script>
+  </body>
+</html>
