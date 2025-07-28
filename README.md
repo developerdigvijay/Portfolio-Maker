@@ -1,0 +1,2 @@
+# Portfolio-Maker
+Portfolio Maker is a web application that allows users to easily create, customize, and manage their personal portfolios. The project features user authentication, profile management, and multiple portfolio templates. Built with HTML, CSS, and JavaScript, and powered by a Node.js backend, it provides a simple and modern interface for showcasing skills, projects, and achievements.
